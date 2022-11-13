@@ -18,7 +18,7 @@ class DivarSpider(scrapy.Spider):
         description = response.css('div div.kt-page-title__subtitle--responsive-sized::text').extract()
         status = response.css('div p.kt-unexpandable-row__value::text').extract()
         detail = response.css('div p.kt-description-row__text--primary::text').extract()
-        img = response.css('picture img.kt-image-block__image--fading::text').extract()
+        img = response.css('picture img.kt-image-block__image kt-image-block__image--fading::src').extract()
         yield {'title': title,
                'description': description,
                'status': status[0],
